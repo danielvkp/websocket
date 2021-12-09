@@ -86,14 +86,16 @@ Echo.channel(`chat_privado.<idChat>`).listen('MensajePrivado', data => {
 
 Luego en el componente que muestra el mensaje solo debera comprobar si hay adjunto con v-if y mostrar el link de descarga.
 
-## Supervisor
+# Supervisor
 
-# Instalacion supervisor
+Esto es mejor dejarlo para cuando el proyecto este muy terminado, en caso de que haya que tocar alguna configuracion no tener que mover todo de nuevo
+
+## Instalacion supervisor
 ```
 apt install supervisor
 ```
 
-# Configurarlo
+## Configurarlo
 
 nano `/etc/supervisor/conf.d`
 
