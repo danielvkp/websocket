@@ -85,3 +85,41 @@ Echo.channel(`chat_privado.<idChat>`).listen('MensajePrivado', data => {
 ```
 
 Luego en el componente que muestra el mensaje solo debera comprobar si hay adjunto con v-if y mostrar el link de descarga.
+
+## Supervisor
+
+# Instalacion supervisor
+```
+apt install supervisor
+```
+
+# Configurarlo
+
+nano `/etc/supervisor/conf.d`
+
+```
+[program:websockets]
+command=/usr/bin/php /<ruta_proyecto> artisan websockets:serve
+numprocs=1
+autostart=true
+autorestart=true
+user=laravel-echo
+```
+
+En mi caso tengo
+
+```
+[program:websockets]
+command=/usr/bin/php /var/www/html/proyecto_web artisan websockets:serve
+numprocs=1
+autostart=true
+autorestart=true
+user=laravel-echo
+```
+
+Luego
+
+`supervisorctl update`
+`supervisorctl start websockets`
+
+Con esto en caso de algun fallo el servidor automaticamente volvera a correr el socket.
